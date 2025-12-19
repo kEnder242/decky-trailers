@@ -1,36 +1,17 @@
 import { definePlugin, routerHook } from "@decky/api";
-import { afterPatch, findInReactTree, appDetailsClasses, createReactTreePatcher, Focusable } from "@decky/ui";
+import { afterPatch, findInReactTree, createReactTreePatcher } from "@decky/ui";
 import { FaVideo } from "react-icons/fa";
 import * as React from "react";
 import { ReactElement } from "react";
 import { GameTrailer } from "./components/GameTrailer";
 
-// @ts-ignore
 const logger = {
     info: (...args: any[]) => console.log("%c Decky Trailers %c Info %c", "background: #16a085; color: black;", "background: #1abc9c; color: black;", "background: transparent;", ...args),
     error: (...args: any[]) => console.error("%c Decky Trailers %c Error %c", "background: #c0392b; color: white;", "background: #e74c3c; color: white;", "background: transparent;", ...args),
 };
 
-function dumpTree(node: any, depth: number = 0) {
-    if (depth > 5 || !node) return;
-    const indent = "  ".repeat(depth);
-    const type = node.type?.displayName || node.type?.name || (typeof node.type === "string" ? node.type : "[object]");
-    const props = node.props ? Object.keys(node.props) : [];
-    const classes = node.props?.className || "";
-    logger.info(`${indent}- Type: ${type}, Class: ${classes}, Props: [${props.join(', ')}]`);
-
-    const children = node.props?.children;
-    if (children) {
-        if (Array.isArray(children)) {
-            children.forEach(c => dumpTree(c, depth + 1));
-        } else {
-            dumpTree(children, depth + 1);
-        }
-    }
-}
-
 export default definePlugin(() => {
-  logger.info("Initializing Decky Trailers v0.1.11 (Video Fallback & Tree Dump)...");
+  logger.info("Initializing Decky Trailers v0.1.16 (Debug Mode)...");
 
   let patch: any;
 
@@ -43,48 +24,78 @@ export default definePlugin(() => {
           }
 
           const patchHandler = createReactTreePatcher([
+              // Path to the element containing the overview section
               (tree: any) => findInReactTree(tree, (x: any) => x?.props?.children?.props?.overview)?.props?.children
           ], (_: any[], ret: ReactElement) => {
               
-              logger.info("--- Tree Dump for Button Placement ---");
-              try {
-                dumpTree(ret, 0);
-              } catch (e) {
-                logger.error("Tree dump failed", e);
-              }
-              logger.info("--- End Tree Dump ---");
+              // Helper to find the parent container of a target node
+              const findParentWithChild = (tree: any, childPredicate: (node: any) => boolean): any => {
+              const findParentWithChild = (tree: any, childPredicate: (node: any) => boolean): any => {
+                  if (!tree || typeof tree !== 'object') return null;
+                  
+                  if (tree.props && Array.isArray(tree.props.children)) {
+                      if (tree.props.children.some(childPredicate)) {
+                          return tree;
+                      }
+                      for (const child of tree.props.children) {
+                          const found = findParentWithChild(child, childPredicate);
+                          if (found) return found;
+                      }
+                  } else if (tree.props && tree.props.children) {
+                      return findParentWithChild(tree.props.children, childPredicate);
+                  }
+                  
+                  return null;
+              };
 
-              let appId: number | undefined;
-              const overviewProps = findInReactTree(ret, (x: any) => x?.props?.appid); 
-              if (overviewProps?.props?.appid) {
-                  appId = overviewProps.props.appid;
+              // Identify the ActionBar
+              const isActionBar = (n: any) => {
+                  return n?.props?.onShowLaunchingDetails || (n?.props?.className && n.props.className.includes("ActionBar"));
+              };
+
+              // Find the parent container that holds the ActionBar
+              const actionBarParent = findParentWithChild(ret, isActionBar);
+
+              if (actionBarParent) {
+                  // Find the specific child index
+                  const children = actionBarParent.props.children;
+                  const actionBarIndex = children.findIndex(isActionBar);
+                  const actionBar = children[actionBarIndex];
+                  
+                  logger.info("Found Action Bar Parent. Action Bar is at index:", actionBarIndex);
+                  // logger.info("Action Bar Props:", safeStringify(actionBar.props));
+
+                  // Try to get AppID from the Action Bar's props (it has the overview)
+                  let appId: number | undefined;
+                  if (actionBar.props?.overview?.appid) {
+                    appId = actionBar.props.overview.appid;
+                  } else {
+                      const match = window.location.pathname.match(/\/library\/app\/(\d+)/);
+                      if (match) appId = parseInt(match[1]);
+                  }
+
+                   if (appId) {
+                       const alreadyInjected = children.some((c: any) => c?.type === GameTrailer);
+                       if (!alreadyInjected) {
+                           logger.info(`Injecting GameTrailer button as sibling to Action Bar for AppID ${appId}`);
+                           
+                           // Insert AFTER the Action Bar
+                           // We use splice to insert at specific index
+                           children.splice(actionBarIndex + 1, 0, <GameTrailer appId={appId} />);
+                       }
+                       return ret;
+                   } else {
+                        logger.error("Found Action Bar but could not determine AppID", actionBar.props);
+                   }
               } else {
-                  const match = window.location.pathname.match(/\/library\/app\/(\d+)/);
-                  if (match) appId = parseInt(match[1]);
+                  // Fallback: Try strict Action Bar finding if parent search failed (legacy logic)
+                  // But looking at previous logs, we know finding the *parent* is the key because the bar itself has no children.
+                  logger.error("No parent container found for Action Bar in ret.");
+                  
+                  // Debug: what IS ret?
+                  // logger.info("Ret structure:", safeStringify(ret));
               }
 
-              if (!appId) {
-                   return ret;
-              }
-
-              // Re-injecting the GameTrailer temporarily to test the video fallback.
-              // We will adjust the injection point after analyzing the tree dump.
-              const container = findInReactTree(ret, (x: any) => 
-                  x?.props?.className?.includes(appDetailsClasses.InnerContainer)
-              );
-
-              if (!container || !container.props || !Array.isArray(container.props.children)) {
-                  logger.info("InnerContainer not found or invalid in patcher ret");
-                  return ret;
-              }
-
-              const alreadyInjected = container.props.children.some((c: any) => c?.type === GameTrailer);
-              if (alreadyInjected) return ret;
-
-              logger.info(`Injecting GameTrailer for AppID ${appId}`);
-
-              container.props.children.splice(1, 0, <GameTrailer appId={appId} />);
-              
               return ret;
           });
 
