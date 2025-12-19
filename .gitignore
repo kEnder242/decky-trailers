@@ -61,3 +61,5 @@ deck.config
 
 # Build artifacts
 deploy/
+logs_*.txt
+ui_dump.html
