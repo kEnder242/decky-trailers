@@ -1,11 +1,11 @@
 {
-  "name": "Example Plugin",
-  "author": "John Doe",
-  "flags": ["debug", "_root"],
-  "api_version": 1,
+  "name": "Decky Trailers",
+  "author": "Jason Allred <kEnder242@gmail.com>",
+  "flags": [],
+  "api_version": 2,
   "publish": {
-    "tags": ["template", "root"],
-    "description": "Decky example plugin.",
+    "tags": ["trailers", "video"],
+    "description": "Watch official game trailers on your Steam Deck.",
     "image": "https://opengraph.githubassets.com/1/SteamDeckHomebrew/PluginLoader"
   }
 }

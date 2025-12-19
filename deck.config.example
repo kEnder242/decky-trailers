@@ -1,0 +1,3 @@
+# Steam Deck IP Address
+# Copy this file to deck.config and update with your Deck's IP
+DECK_IP=192.168.1.XXX
