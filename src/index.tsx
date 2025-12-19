@@ -30,7 +30,6 @@ export default definePlugin(() => {
               
               // Helper to find the parent container of a target node
               const findParentWithChild = (tree: any, childPredicate: (node: any) => boolean): any => {
-              const findParentWithChild = (tree: any, childPredicate: (node: any) => boolean): any => {
                   if (!tree || typeof tree !== 'object') return null;
                   
                   if (tree.props && Array.isArray(tree.props.children)) {
@@ -75,13 +74,18 @@ export default definePlugin(() => {
                   }
 
                    if (appId) {
-                       const alreadyInjected = children.some((c: any) => c?.type === GameTrailer);
+                       // SHOTGUN DEBUG MODE: Inject all 3 variants for comparison
+                       const alreadyInjected = children.some((c: any) => c?.type === GameTrailer && c.props.variant === 'A');
+                       
                        if (!alreadyInjected) {
-                           logger.info(`Injecting GameTrailer button as sibling to Action Bar for AppID ${appId}`);
+                           logger.info(`Injecting SHOTGUN DEBUG variants (A, B, C) for AppID ${appId}`);
                            
                            // Insert AFTER the Action Bar
-                           // We use splice to insert at specific index
-                           children.splice(actionBarIndex + 1, 0, <GameTrailer appId={appId} />);
+                           children.splice(actionBarIndex + 1, 0, 
+                                <GameTrailer appId={appId} variant="A" />,
+                                <GameTrailer appId={appId} variant="B" />,
+                                <GameTrailer appId={appId} variant="C" />
+                           );
                        }
                        return ret;
                    } else {
