@@ -55,3 +55,9 @@ out/*
 cli/
 cli/*
 cli/decky
+
+# Local development config (contains IP addresses)
+deck.config
+
+# Build artifacts
+deploy/

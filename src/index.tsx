@@ -1,115 +1,165 @@
-import {
-  ButtonItem,
-  PanelSection,
-  PanelSectionRow,
-  Navigation,
-  staticClasses
-} from "@decky/ui";
-import {
-  addEventListener,
-  removeEventListener,
-  callable,
-  definePlugin,
-  toaster,
-  // routerHook
-} from "@decky/api"
-import { useState } from "react";
-import { FaShip } from "react-icons/fa";
+import { definePlugin, routerHook } from "@decky/api";
+import { FaPlay, FaVideo, FaTimes } from "react-icons/fa";
+import { Focusable } from "@decky/ui";
+import * as React from "react";
+import { useState, useEffect } from "react";
 
-// import logo from "../assets/logo.png";
+interface Movie {
+  id: number;
+  name: string;
+  highlight: boolean;
+}
 
-// This function calls the python function "add", which takes in two numbers and returns their sum (as a number)
-// Note the type annotations:
-//  the first one: [first: number, second: number] is for the arguments
-//  the second one: number is for the return value
-const add = callable<[first: number, second: number], number>("add");
+const TrailerOverlay = () => {
+  const [appId, setAppId] = useState<string | null>(null);
+  const [trailer, setTrailer] = useState<Movie | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
-// This function calls the python function "start_timer", which takes in no arguments and returns nothing.
-// It starts a (python) timer which eventually emits the event 'timer_event'
-const startTimer = callable<[], void>("start_timer");
+  useEffect(() => {
+    const checkUrl = () => {
+      const match = window.location.pathname.match(/\/library\/app\/(\d+)/);
+      const newAppId = match ? match[1] : null;
+      if (newAppId !== appId) {
+        setAppId(newAppId);
+        setIsPlaying(false); // Stop playing if we navigate away
+      }
+    };
+    checkUrl();
+    const interval = setInterval(checkUrl, 500);
+    return () => clearInterval(interval);
+  }, [appId]);
 
-function Content() {
-  const [result, setResult] = useState<number | undefined>();
+  useEffect(() => {
+    if (!appId) {
+      setTrailer(null);
+      return;
+    }
 
-  const onClick = async () => {
-    const result = await add(Math.random(), Math.random());
-    setResult(result);
-  };
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${appId}`);
+        const json = await res.json();
+        if (json && json[appId] && json[appId].success) {
+          const movies = json[appId].data.movies;
+          if (movies && movies.length > 0) {
+            const best = movies.find((m: any) => m.highlight) || movies[0];
+            setTrailer(best);
+          } else {
+            setTrailer(null);
+          }
+        }
+      } catch (e) {
+        console.error("[DeckyTrailers] Fetch failed:", e);
+      }
+    };
+    fetchData();
+  }, [appId]);
 
-  return (
-    <PanelSection title="Panel Section">
-      <PanelSectionRow>
-        <ButtonItem
-          layout="below"
-          onClick={onClick}
-        >
-          {result ?? "Add two numbers via Python"}
-        </ButtonItem>
-      </PanelSectionRow>
-      <PanelSectionRow>
-        <ButtonItem
-          layout="below"
-          onClick={() => startTimer()}
-        >
-          {"Start Python timer"}
-        </ButtonItem>
-      </PanelSectionRow>
+  if (!appId || !trailer) return null;
 
-      {/* <PanelSectionRow>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={logo} />
+  // Render the full-screen player if active
+  if (isPlaying) {
+    const webmUrl = `https://cdn.akamai.steamstatic.com/steam/apps/${trailer.id}/movie_max.webm`;
+    const mp4Url = `https://cdn.akamai.steamstatic.com/steam/apps/${trailer.id}/movie_max.mp4`;
+
+    return (
+        <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: '#000',
+            zIndex: 10000,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
+            <Focusable style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                zIndex: 10001,
+                cursor: 'pointer',
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                padding: '10px',
+                borderRadius: '50%',
+                color: 'white',
+                display: 'flex'
+            }} onClick={() => setIsPlaying(false)}>
+                <FaTimes size={30} />
+            </Focusable>
+            
+            <div style={{
+                position: 'absolute',
+                top: '20px',
+                left: '20px',
+                zIndex: 10001,
+                color: 'white',
+                fontSize: '1.5em',
+                fontWeight: 'bold',
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+            }}>
+                {trailer.name}
+            </div>
+
+            <video 
+                autoPlay 
+                controls 
+                poster={(trailer as any).thumbnail}
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    filter: 'opacity(0.999)',
+                    willChange: 'transform'
+                }}
+            >
+                <source src={webmUrl} type="video/webm" />
+                <source src={mp4Url} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
         </div>
-      </PanelSectionRow> */}
+    );
+  }
 
-      {/*<PanelSectionRow>
-        <ButtonItem
-          layout="below"
-          onClick={() => {
-            Navigation.Navigate("/decky-plugin-test");
-            Navigation.CloseSideMenus();
-          }}
-        >
-          Router
-        </ButtonItem>
-      </PanelSectionRow>*/}
-    </PanelSection>
+  // Render the floating button
+  return (
+    <Focusable style={{
+        position: 'fixed',
+        bottom: '80px',
+        right: '20px',
+        zIndex: 9999,
+        backgroundColor: '#1a1f2c',
+        padding: '12px 20px',
+        borderRadius: '4px',
+        color: '#fff',
+        border: '1px solid #3e465a',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.6)',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px'
+    }}
+    onClick={() => setIsPlaying(true)}
+    >
+        <FaPlay color="#21beec" />
+        <span>Watch Trailer</span>
+    </Focusable>
   );
 };
 
 export default definePlugin(() => {
-  console.log("Template plugin initializing, this is called once on frontend startup")
-
-  // serverApi.routerHook.addRoute("/decky-plugin-test", DeckyPluginRouterTest, {
-  //   exact: true,
-  // });
-
-  // Add an event listener to the "timer_event" event from the backend
-  const listener = addEventListener<[
-    test1: string,
-    test2: boolean,
-    test3: number
-  ]>("timer_event", (test1, test2, test3) => {
-    console.log("Template got timer_event with:", test1, test2, test3)
-    toaster.toast({
-      title: "template got timer_event",
-      body: `${test1}, ${test2}, ${test3}`
-    });
-  });
+  routerHook.addGlobalComponent("DeckyTrailersOverlay", TrailerOverlay);
 
   return {
-    // The name shown in various decky menus
-    name: "Test Plugin",
-    // The element displayed at the top of your plugin's menu
-    titleView: <div className={staticClasses.Title}>Decky Example Plugin</div>,
-    // The content of your plugin's menu
-    content: <Content />,
-    // The icon displayed in the plugin list
-    icon: <FaShip />,
-    // The function triggered when your plugin unloads
+    name: "Decky Trailers",
+    title: <div>Decky Trailers</div>,
+    content: <div>Overlay active</div>,
+    icon: <FaVideo />,
     onDismount() {
-      console.log("Unloading")
-      removeEventListener("timer_event", listener);
-      // serverApi.routerHook.removeRoute("/decky-plugin-test");
+        routerHook.removeGlobalComponent("DeckyTrailersOverlay");
     },
   };
 });
