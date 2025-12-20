@@ -74,18 +74,13 @@ export default definePlugin(() => {
                   }
 
                    if (appId) {
-                       // SHOTGUN DEBUG MODE: Inject all 3 variants for comparison
-                       const alreadyInjected = children.some((c: any) => c?.type === GameTrailer && c.props.variant === 'A');
+                       const alreadyInjected = children.some((c: any) => c?.type === GameTrailer);
                        
                        if (!alreadyInjected) {
-                           logger.info(`Injecting SHOTGUN DEBUG variants (A, B, C) for AppID ${appId}`);
+                           logger.info(`Injecting GameTrailer button (Hero Overlay) for AppID ${appId}`);
                            
                            // Insert AFTER the Action Bar
-                           children.splice(actionBarIndex + 1, 0, 
-                                <GameTrailer appId={appId} variant="A" />,
-                                <GameTrailer appId={appId} variant="B" />,
-                                <GameTrailer appId={appId} variant="C" />
-                           );
+                           children.splice(actionBarIndex + 1, 0, <GameTrailer appId={appId} />);
                        }
                        return ret;
                    } else {
