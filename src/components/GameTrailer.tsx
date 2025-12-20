@@ -12,11 +12,10 @@ const logger = {
 const TrailerPlayer = ({ trailer, onClose }: { trailer: any, onClose: () => void }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     useEffect(() => { 
-        logger.info("TrailerPlayer MOUNTED");
+        logger.info("👉 Triple Crown: TrailerPlayer Mounted");
         setTimeout(() => containerRef.current?.focus(), 100); 
     }, []);
     
-    // NO PORTAL - Render in-place to stay alive!
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: '#000', zIndex: 30000, display: 'flex', justifyContent: 'center', alignItems: 'center', pointerEvents: 'auto' }}>
             <Focusable style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }} onCancel={onClose} 
@@ -40,7 +39,6 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const fetchTrailer = async () => {
-      logger.info(`v0.1.33: Fetching data for ${appId}`);
       try {
           const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${appId}`);
           const json = await res.json();
@@ -49,7 +47,6 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
               if (movies?.length > 0) {
                   const selected = movies.find((m: any) => m.highlight) || movies[0];
                   setTrailer(selected);
-                  logger.info(`v0.1.33: Success for ${appId}`);
                   return selected;
               }
           }
@@ -57,14 +54,17 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
       return null;
   };
 
-  useEffect(() => { fetchTrailer(); }, [appId]);
+  useEffect(() => { 
+      logger.info(`👉 Triple Crown: Initializing fetch for ${appId}`);
+      fetchTrailer(); 
+  }, [appId]);
 
   const playVideo = (e?: any) => {
       if (e) {
           e.stopPropagation();
           e.preventDefault();
       }
-      logger.info(`👉 ACTION: Play Trailer ${appId}`);
+      logger.info(`👉 Triple Crown: ACTION: Play Trailer for ${appId}`);
       if (trailer) {
           setIsPlaying(true);
       } else {
@@ -78,30 +78,32 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
 
   return (
     <>
-        {/* Background Video */}
+        {/* Background Video (Triple Crown 1/3) */}
         {trailer && !isPlaying && (
             <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none', opacity: bgReady ? 0.35 : 0, transition: 'opacity 1.5s ease-in-out' }}>
-                <video autoPlay muted loop playsInline onCanPlay={() => setBgReady(true)} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px) brightness(0.8)', opacity: 0.999 }}>
+                <video autoPlay muted loop playsInline onCanPlay={() => { if(!bgReady) logger.info("👉 Triple Crown: Background Video Ready"); setBgReady(true); }} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px) brightness(0.8)', opacity: 0.999 }}>
                     <source src={`https://cdn.akamai.steamstatic.com/steam/apps/${trailer.id}/movie_max.webm`} type="video/webm" />
                     <source src={`https://cdn.akamai.steamstatic.com/steam/apps/${trailer.id}/movie_max.mp4`} type="video/mp4" />
                 </video>
             </div>
         )}
 
+        {/* Video Player (Triple Crown 3/3) */}
         {isPlaying && trailer && <TrailerPlayer trailer={trailer} onClose={() => setIsPlaying(false)} />}
 
+        {/* Integrated Button (Triple Crown 2/3) */}
         {!isPlaying && (
             <Focusable
                 className="GamepadButton Focusable"
                 onActivate={playVideo}
                 onClick={playVideo}
-                onFocus={() => { setIsFocused(true); logger.info("Button FOCUSED"); }}
+                onFocus={() => { setIsFocused(true); }}
                 onBlur={() => setIsFocused(false)}
                 style={{
                     display: 'inline-flex', alignItems: 'center', gap: '8px', 
                     padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', 
                     fontWeight: 'bold', color: 'white',
-                    backgroundColor: isFocused ? 'orange' : 'rgba(0, 0, 0, 0.6)',
+                    backgroundColor: isFocused ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.4)',
                     border: isFocused ? '2px solid white' : '1px solid rgba(255,255,255,0.1)',
                     backdropFilter: 'blur(10px)',
                     boxShadow: '0 4px 10px rgba(0,0,0,0.3)',

@@ -10,8 +10,9 @@ const logger = {
 };
 
 export default definePlugin(() => {
-  const BUILD_TIME = "12:10 AM"; // Manual timestamp check
-  logger.info(`Initializing v0.1.33 [${BUILD_TIME}] (The No-Portal Build)`);
+  const BUILD_VERSION = "v0.1.34";
+  const BUILD_TIME = "12:15 AM";
+  logger.info(`Initializing ${BUILD_VERSION} [${BUILD_TIME}] (Final Milestone)`);
 
   let patch: any;
 
@@ -29,6 +30,7 @@ export default definePlugin(() => {
 
               if (!appId) return ret;
 
+              // TARGET: InnerContainer (Confirmed Visible + Navigable)
               const container = findInReactTree(ret, (x: any) => 
                   Array.isArray(x?.props?.children) && 
                   x?.props?.className?.includes(appDetailsClasses.InnerContainer)
@@ -37,7 +39,8 @@ export default definePlugin(() => {
               if (container && Array.isArray(container.props.children)) {
                   const alreadyInjected = container.props.children.some((c: any) => c?.type === GameTrailer);
                   if (!alreadyInjected) {
-                      logger.info(`Injecting v0.1.33 into InnerContainer for AppID ${appId}`);
+                      logger.info(`👉 Milestone Match: Injecting GameTrailer for AppID ${appId} ${BUILD_VERSION}`);
+                      // Inject at beginning for joystick priority (unshift)
                       container.props.children.unshift(<GameTrailer appId={appId} />);
                   }
               }
