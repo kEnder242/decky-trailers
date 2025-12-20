@@ -2,7 +2,6 @@ import { Focusable } from "@decky/ui";
 import { FaPlay, FaTimes, FaSpinner } from "react-icons/fa";
 import * as React from "react";
 import { useState, useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 
 const logger = {
     info: (...args: any[]) => console.log("%c [Trailers] %c Info %c", "background: #16a085; color: black;", "background: #1abc9c; color: black;", "background: transparent;", ...args),
@@ -94,7 +93,6 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
                 onFocus={() => { setIsFocused(true); }}
                 onBlur={() => setIsFocused(false)}
                 style={{
-                    // WIDER Focusable area to catch the joystick more easily
                     display: 'inline-flex', alignItems: 'center', gap: '8px', 
                     padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', 
                     fontWeight: 'bold', color: 'white',

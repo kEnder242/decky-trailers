@@ -10,9 +10,9 @@ const logger = {
 };
 
 export default definePlugin(() => {
-  const BUILD_VERSION = "v0.1.38";
-  const BUILD_TIME = "12:55 AM";
-  logger.info(`Initializing ${BUILD_VERSION} [${BUILD_TIME}] (Splice-2 Fix)`);
+  const BUILD_VERSION = "v0.1.41";
+  const BUILD_TIME = "1:10 AM";
+  logger.info(`Initializing ${BUILD_VERSION} [${BUILD_TIME}] (Final Navigation Polish)`);
 
   let patch: any;
 
@@ -40,9 +40,10 @@ export default definePlugin(() => {
                   const alreadyInjected = children.some((c: any) => c?.type === GameTrailer);
                   
                   if (!alreadyInjected) {
-                      // USE INDEX 2: This places us near the ActionBar (p)
-                      children.splice(2, 0, <GameTrailer appId={appId} />);
-                      logger.info(`👉 v0.1.38: Spliced at index 2 for ${appId}`);
+                      // BASELINE SUCCESS: Index 2 is the natural 'UP' slot relative to the Play bar.
+                      const targetIndex = Math.min(2, children.length);
+                      children.splice(targetIndex, 0, <GameTrailer appId={appId} />);
+                      logger.info(`Injected at index ${targetIndex} for ${appId}`);
                   }
               }
 
