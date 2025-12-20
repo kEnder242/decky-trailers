@@ -2,6 +2,30 @@
 
 Inject cinematic game trailers directly into your Steam Deck game details page.
 
+## 🛠 Developer Setup
+
+### Dependencies
+*   Node.js v16.14+
+*   `pnpm` (v9 recommended)
+
+### Build & Deploy
+1.  `pnpm i` - Install dependencies.
+2.  `pnpm run build` - Compile the frontend.
+3.  `./deploy-nobuild.sh` - Transfer to Steam Deck and restart service.
+
+### Debugging
+Run `pnpm run logs` (or `node tail_logs.js`) to stream live console output from the Deck via WebSocket. Look for the `👉 Triple Crown` prefix to verify features.
+
+---
+
+## 📜 Credits & License
+*   **Built by:** Jason Allred & Gemini (The AI Masterclass project).
+*   **Inspired by:** ProtonDB Badges & MoonDeck.
+*   **License:** MIT
+
+---
+
+
 ## 🚀 The Triple Crown Milestone (v0.1.34)
 We have successfully achieved our core feature set:
 1.  **Cinematic Backgrounds:** Trailers play automatically (muted/blurred) behind the game artwork.
@@ -35,27 +59,3 @@ When injecting elements, they often landed at the end of the focus chain, requir
 *   **The Breakthrough:** Using `unshift` instead of `push` on the children array. This injects our button at the start of the row, giving it immediate joystick priority.
 
 ---
-
-## 🛠 Developer Setup
-
-### Dependencies
-*   Node.js v16.14+
-*   `pnpm` (v9 recommended)
-
-### Build & Deploy
-1.  `pnpm i` - Install dependencies.
-2.  `pnpm run build` - Compile the frontend.
-3.  `./deploy-nobuild.sh` - Transfer to Steam Deck and restart service.
-
-### Debugging
-Run `pnpm run logs` (or `node tail_logs.js`) to stream live console output from the Deck via WebSocket. Look for the `👉 Triple Crown` prefix to verify features.
-
----
-
-## 📜 Credits & License
-*   **Built by:** Jason Allred & Gemini (The AI Masterclass project).
-*   **Inspired by:** ProtonDB Badges & MoonDeck.
-*   **License:** MIT
-
----
-*Reference example for using decky-frontend-lib (@decky/ui) in a decky-loader plugin.*
