@@ -6,13 +6,13 @@ import { ReactElement } from "react";
 import { GameTrailer } from "./components/GameTrailer";
 
 const logger = {
-    info: (...args: any[]) => console.log("%c Decky Trailers %c Info %c", "background: #16a085; color: black;", "background: #1abc9c; color: black;", "background: transparent;", ...args),
+    info: (...args: any[]) => console.log("%c [Trailers] %c Info %c", "background: #16a085; color: black;", "background: #1abc9c; color: black;", "background: transparent;", ...args),
 };
 
 export default definePlugin(() => {
-  const BUILD_VERSION = "v0.1.34";
-  const BUILD_TIME = "12:15 AM";
-  logger.info(`Initializing ${BUILD_VERSION} [${BUILD_TIME}] (Final Milestone)`);
+  const BUILD_VERSION = "v0.1.38";
+  const BUILD_TIME = "12:55 AM";
+  logger.info(`Initializing ${BUILD_VERSION} [${BUILD_TIME}] (Splice-2 Fix)`);
 
   let patch: any;
 
@@ -30,18 +30,19 @@ export default definePlugin(() => {
 
               if (!appId) return ret;
 
-              // TARGET: InnerContainer (Confirmed Visible + Navigable)
               const container = findInReactTree(ret, (x: any) => 
                   Array.isArray(x?.props?.children) && 
                   x?.props?.className?.includes(appDetailsClasses.InnerContainer)
               );
 
               if (container && Array.isArray(container.props.children)) {
-                  const alreadyInjected = container.props.children.some((c: any) => c?.type === GameTrailer);
+                  const children = container.props.children;
+                  const alreadyInjected = children.some((c: any) => c?.type === GameTrailer);
+                  
                   if (!alreadyInjected) {
-                      logger.info(`👉 Milestone Match: Injecting GameTrailer for AppID ${appId} ${BUILD_VERSION}`);
-                      // Inject at beginning for joystick priority (unshift)
-                      container.props.children.unshift(<GameTrailer appId={appId} />);
+                      // USE INDEX 2: This places us near the ActionBar (p)
+                      children.splice(2, 0, <GameTrailer appId={appId} />);
+                      logger.info(`👉 v0.1.38: Spliced at index 2 for ${appId}`);
                   }
               }
 

@@ -5,14 +5,14 @@ import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 const logger = {
-    info: (...args: any[]) => console.log("%c Decky Trailers %c Info %c", "background: #16a085; color: black;", "background: #1abc9c; color: black;", "background: transparent;", ...args),
-    error: (...args: any[]) => console.error("%c Decky Trailers %c Error %c", "background: #c0392b; color: white;", "background: #e74c3c; color: white;", "background: transparent;", ...args),
+    info: (...args: any[]) => console.log("%c [Trailers] %c Info %c", "background: #16a085; color: black;", "background: #1abc9c; color: black;", "background: transparent;", ...args),
+    error: (...args: any[]) => console.error("%c [Trailers] %c Error %c", "background: #c0392b; color: white;", "background: #e74c3c; color: white;", "background: transparent;", ...args),
 };
 
 const TrailerPlayer = ({ trailer, onClose }: { trailer: any, onClose: () => void }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     useEffect(() => { 
-        logger.info("👉 Triple Crown: TrailerPlayer Mounted");
+        logger.info("Player mounted");
         setTimeout(() => containerRef.current?.focus(), 100); 
     }, []);
     
@@ -54,20 +54,16 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
       return null;
   };
 
-  useEffect(() => { 
-      logger.info(`👉 Triple Crown: Initializing fetch for ${appId}`);
-      fetchTrailer(); 
-  }, [appId]);
+  useEffect(() => { fetchTrailer(); }, [appId]);
 
   const playVideo = (e?: any) => {
       if (e) {
           e.stopPropagation();
           e.preventDefault();
       }
-      logger.info(`👉 Triple Crown: ACTION: Play Trailer for ${appId}`);
-      if (trailer) {
-          setIsPlaying(true);
-      } else {
+      logger.info(`ACTION: Play Trailer ${appId}`);
+      if (trailer) setIsPlaying(true);
+      else {
           setIsLoading(true);
           fetchTrailer().then(t => {
               setIsLoading(false);
@@ -78,20 +74,18 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
 
   return (
     <>
-        {/* Background Video (Triple Crown 1/3) */}
+        {/* Background Video */}
         {trailer && !isPlaying && (
             <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none', opacity: bgReady ? 0.35 : 0, transition: 'opacity 1.5s ease-in-out' }}>
-                <video autoPlay muted loop playsInline onCanPlay={() => { if(!bgReady) logger.info("👉 Triple Crown: Background Video Ready"); setBgReady(true); }} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px) brightness(0.8)', opacity: 0.999 }}>
+                <video autoPlay muted loop playsInline onCanPlay={() => setBgReady(true)} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px) brightness(0.8)', opacity: 0.999 }}>
                     <source src={`https://cdn.akamai.steamstatic.com/steam/apps/${trailer.id}/movie_max.webm`} type="video/webm" />
                     <source src={`https://cdn.akamai.steamstatic.com/steam/apps/${trailer.id}/movie_max.mp4`} type="video/mp4" />
                 </video>
             </div>
         )}
 
-        {/* Video Player (Triple Crown 3/3) */}
         {isPlaying && trailer && <TrailerPlayer trailer={trailer} onClose={() => setIsPlaying(false)} />}
 
-        {/* Integrated Button (Triple Crown 2/3) */}
         {!isPlaying && (
             <Focusable
                 className="GamepadButton Focusable"
@@ -100,6 +94,7 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
                 onFocus={() => { setIsFocused(true); }}
                 onBlur={() => setIsFocused(false)}
                 style={{
+                    // WIDER Focusable area to catch the joystick more easily
                     display: 'inline-flex', alignItems: 'center', gap: '8px', 
                     padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', 
                     fontWeight: 'bold', color: 'white',
@@ -109,7 +104,8 @@ export const GameTrailer = ({ appId }: { appId: number }) => {
                     boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
                     transform: isFocused ? 'scale(1.05)' : 'scale(1)',
                     transition: 'transform 0.1s, background-color 0.1s',
-                    position: 'absolute', top: '325px', left: '40px', zIndex: 10000
+                    position: 'absolute', top: '325px', left: '40px', zIndex: 10000,
+                    minWidth: '150px', justifyContent: 'center'
                 }}
             >
                 {isLoading ? <FaSpinner className="fa-spin" /> : <FaPlay size={12} color="#fff" />}
