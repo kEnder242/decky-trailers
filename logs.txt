@@ -1,0 +1,278 @@
+🔌 Connecting to ws://192.168.1.25:8081/devtools/page/B6778382F1880275C5345C070E7D8354...
+✅ Connected! Listening for logs...
+[37m[LOG] Storing new config params ?LOCAL_HOSTNAME=jason-deck&LANGUAGE=english&COUNTRY=US&LAUNCHER_TYPE=0&CLIENT_SESSION=1766107523&IN_CLIENT=true&USE_POPUPS=true&IN_STEAMUI_SHARED_CONTEXT=true&PLATFORM=linux&ON_DECK=true&ON_STEAMOS=true&IN_GAMESCOPE=true[0m
+[37m[LOG] setting locale: en[0m
+[37m[LOG] websocket open[0m
+[37m[LOG] websocket open[0m
+[37m[LOG] connection ready[0m
+[37m[LOG] connection ready[0m
+[37m[LOG] Connection status: connected[0m
+[37m[STARTGROUPCOLLAPSED] SteamApp Init - WebUI Transport - 172ms[0m
+[37m[LOG] async WebUITransportStore - 169.6ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[LOG] font-family: monospace; background: black; color: white; font-weight: normal; padding: 0 1ch; border: solid 1px #666[0m
+[37m[LOG] Init localization english[0m
+[37m[LOG] OnLoginStateChange jallred@dellmail.com 7 1 0 0[0m
+[37m[STARTGROUPCOLLAPSED] SteamApp Init - Before Login - 187.3ms[0m
+[37m[LOG] VirtualMenuStore - 0.2ms[0m
+[37m[LOG] NotificationStore - 0.3ms[0m
+[37m[LOG] FriendsChatStore - 1.9ms[0m
+[37m[LOG] SuspendResumeStore - 0.6ms[0m
+[37m[LOG] SteamingStore - 0.4ms[0m
+[37m[LOG] ConsoleStore - 0.1ms[0m
+[37m[LOG] FocusedAppWindowStore - 0.5ms[0m
+[37m[LOG] VRStore - 1.2ms[0m
+[37m[LOG] async OverlayModalDialogsStore - 16.9ms[0m
+[37m[LOG] async SystemNetworkStore - 16.9ms[0m
+[37m[LOG] async SystemReportStore - 17ms[0m
+[37m[LOG] async SimpleTests - 17ms[0m
+[37m[LOG] async VRGamepadUIMessages - 17ms[0m
+[37m[LOG] async VRAudioSettingsStore - 17ms[0m
+[37m[LOG] async SteamURLStore - 17ms[0m
+[37m[LOG] async IBusConnection - 20.6ms[0m
+[37m[LOG] async CM Connect - 22ms[0m
+[37m[LOG] async BasicUIStore - 33.6ms[0m
+[37m[LOG] async SecurityStore - 35.8ms[0m
+[37m[LOG] async KeyboardSettingsStore - 36ms[0m
+[37m[LOG] async Localization - 122.1ms[0m
+[37m[LOG] async URLStore - 132.6ms[0m
+[37m[LOG] async LoginStore - 187.3ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[STARTGROUPCOLLAPSED] SteamAppInit - ControllerStore - 71.2ms[0m
+[37m[LOG] async ControllerStore - 71.1ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[LOG] Init localization english[0m
+[37m[LOG] CloudStorage resuming with 199 entries (0 modified) for namespace 1[0m
+[37m[LOG] CloudStorage resuming with 0 entries (0 modified) for namespace 3[0m
+[37m[LOG] Updated Steam Version Info: {"nSteamVersion":1763795278,"sSteamAPI":"SteamClient023","sSteamBuildDate":"Nov 22 2025 07:00:32","sOSCodename":"holo","sOSVersionId":"3.7.17","sOSVariantId":"steamdeck","sOSBuildId":"20251027.1","sBIOSVersion":"F7A0131"}[0m
+[37m[STARTGROUPCOLLAPSED] SteamApp Init - After Login - Stage 1 - 478.7ms[0m
+[37m[LOG] async CM Connection - 22ms[0m
+[37m[LOG] async GameActionStore - 22ms[0m
+[37m[LOG] async SystemInfoStore - 22ms[0m
+[37m[LOG] async SystemNetworkStore - 22ms[0m
+[37m[LOG] async localization - 36.3ms[0m
+[37m[LOG] async SettingsStore - 55.6ms[0m
+[37m[LOG] async AchievementProgress - 61.3ms[0m
+[37m[LOG] async CloudStorage - 76.3ms[0m
+[37m[LOG] async URLStore - 198.8ms[0m
+[37m[LOG] async FriendsChatStore - Startup - 478.7ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[TIMEEND] CAppStore Init: 806.1220703125 ms[0m
+[37m[STARTGROUPCOLLAPSED] SteamApp Init - AppStore - 806.6ms[0m
+[37m[LOG] async AppStore - 806.5ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[STARTGROUPCOLLAPSED] SteamApp Init - After Login - Friend Store - 42.3ms[0m
+[37m[LOG] async FriendStore - 42.3ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[STARTGROUPCOLLAPSED] SteamApp Init - After Login - Collection Store - 137.9ms[0m
+[37m[LOG] async CollectionStore - 137.9ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[TIMEEND] CUIStore Init: 60.135986328125 ms[0m
+[37m[STARTGROUPCOLLAPSED] FriendsUI ReadyToRender - 1,252.4ms[0m
+[37m[LOG] VoiceChatStore - 0.5ms[0m
+[37m[LOG] SettingsStore - 0ms[0m
+[37m[LOG] AppInfoStore - 0ms[0m
+[37m[LOG] UIStore - 0.1ms[0m
+[37m[LOG] EconomyStore - 0ms[0m
+[37m[LOG] ParentalStore - 0.1ms[0m
+[37m[LOG] BroadcastStore - 0ms[0m
+[37m[LOG] RemotePlayStore - 1ms[0m
+[37m[LOG] GroupMemberStore - 0ms[0m
+[37m[LOG] UserStore - 0.3ms[0m
+[37m[LOG] VRPopupManager - 0.7ms[0m
+[37m[LOG] async Load Preferences - 850.2ms[0m
+[37m[LOG] async Clock Drift - 899.2ms[0m
+[37m[LOG] async ChatStore - 1,099.6ms[0m
+[37m[LOG] async FriendStore - 1,252.3ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[STARTGROUPCOLLAPSED] SteamApp Init - After Login - Stage 2 - 283.2ms[0m
+[37m[LOG] AppInfoStore - 0.1ms[0m
+[37m[LOG] AppActivityStore - 0.6ms[0m
+[37m[LOG] AppDetailsStore - 0.1ms[0m
+[37m[LOG] AppReviewStore - 0ms[0m
+[37m[LOG] WorkshopStore - 0.1ms[0m
+[37m[LOG] BadgeStore - 0.5ms[0m
+[37m[LOG] DownloadsStore - 0.3ms[0m
+[37m[LOG] FAQStore - 0.2ms[0m
+[37m[LOG] ControllerConfigStore - 0.3ms[0m
+[37m[LOG] InstallFolderStore - 0.1ms[0m
+[37m[LOG] SubscriberAgreementStore - 0ms[0m
+[37m[LOG] ScreenshotStore - 0.1ms[0m
+[37m[LOG] DiscoveryQueueStore - 0.2ms[0m
+[37m[LOG] MarketingStore - 0ms[0m
+[37m[LOG] LibraryLoyaltyAwardModal - 0.3ms[0m
+[37m[LOG] RemotePlayStore - 0.7ms[0m
+[37m[LOG] OverlayStore - 0.3ms[0m
+[37m[LOG] ServerBrowserStore - 0.2ms[0m
+[37m[LOG] MusicStore - 0.1ms[0m
+[37m[LOG] HardwareUpdaterStore - 0.5ms[0m
+[37m[LOG] async CommunityStore - 17.5ms[0m
+[37m[LOG] async SettingsZooStore - 27.7ms[0m
+[37m[LOG] async SearchStore - 27.7ms[0m
+[37m[LOG] async AchievementStore - 27.7ms[0m
+[37m[LOG] async GameReleasedStore - 27.7ms[0m
+[37m[LOG] async GamescopeStore - 27.7ms[0m
+[37m[LOG] async SystemStorageStore - 27.7ms[0m
+[37m[LOG] async SDCardStore - 27.7ms[0m
+[37m[LOG] async SteamOSStore - 27.7ms[0m
+[37m[LOG] async LEDManagerStore - 27.7ms[0m
+[37m[LOG] async BluetoothStore - 27.7ms[0m
+[37m[LOG] async ControllerConfigInterstitialStore - 27.9ms[0m
+[37m[LOG] async LibraryEventStore - 28ms[0m
+[37m[LOG] async ShowcaseStore - 28ms[0m
+[37m[LOG] async LibraryUIStore - 60.1ms[0m
+[37m[LOG] async AppSpotlightsStore - 61.3ms[0m
+[37m[LOG] async PlayNextStore - 61.5ms[0m
+[37m[LOG] async UserProfileStore - 75.6ms[0m
+[37m[LOG] async BasicUIStore - with user - 76.3ms[0m
+[37m[LOG] async KeyboardSettingsStore - 77.8ms[0m
+[37m[LOG] async EmojiStore - 81.6ms[0m
+[37m[LOG] async SteamNotificationsStore - 83.4ms[0m
+[37m[LOG] async EAAccessPromptManager - 108.3ms[0m
+[37m[LOG] async ParentalStore - 117.5ms[0m
+[37m[LOG] async GRS - 121.1ms[0m
+[37m[LOG] async TrendingStore - 172.1ms[0m
+[37m[LOG] async DynamicUserStore - 283.2ms[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[TIMEEND] SteamApp Init - After Login: 1753.302001953125 ms[0m
+[37m[LOG] Loading batch of App Info from Steam:  Array(2)[0m
+[37m[DEBUG] [Decky:Boot] Frontend init[0m
+[37m[TIMEEND] [Decky:Boot] Waiting for SteamApp init stage 1 to finish...: 0.01611328125 ms[0m
+[37m[DEBUG] [Decky:Boot] Setting up Webpack & React globals...[0m
+[37m[STARTGROUP] %c @decky/ui %c Webpack %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Webpack Module Init[0m
+[37m[LOG] %c @decky/ui %c Webpack %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initializing all modules. Errors here likely do not matter, as they are usually just failing module side effects.[0m
+[37m[ENDGROUP] console.groupEnd[0m
+[37m[LOG] ^ %c @decky/ui %c Webpack %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Modules initialized in 38.90000000037253ms...[0m
+[37m[DEBUG] [Decky:Boot] Setting up JSX internals...[0m
+[37m[DEBUG] [Decky:Boot] Setting up @decky/ui...[0m
+[37m[DEBUG] [Decky:Boot] Authenticating with Decky backend...[0m
+[37m[DEBUG] [Decky:Boot] Connecting to Decky backend...[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; WS Connected[0m
+[37m[DEBUG] [Decky:Boot] Starting Decky![0m
+[37m[LOG] %c Decky %c ErrorBoundaryHook %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initialized[0m
+[37m[LOG] %c Decky %c TabsHook %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initialized[0m
+[37m[LOG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initialized[0m
+[37m[LOG] %c Decky %c Toaster %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initialized[0m
+[37m[DEBUG] %c Decky %c TabsHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Adding tab 999 to render array[0m
+[37m[DEBUG] %c Decky %c CEFSocketFix %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; CEF shutdown handler ready[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [1] Calling PY method utilities/get_user_info with args Array(0)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [2] Calling PY method updater/get_version_info with args Array(0)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [3] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [4] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [5] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [6] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [7] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [1] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [8] Calling PY method utilities/settings/set with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [9] Calling PY method utilities/settings/set with args Array(2)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; UI mode changed to 4[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Patching router for UI mode 4[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Patching gamepad router[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [2] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [3] Resolved PY call with value true[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [4] Resolved PY call with value Array(9)[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; pluginOrder:  Array(9)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [5] Resolved PY call with value Array(0)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [6] Resolved PY call with value Array(0)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [7] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Route list:  Array(29)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Route list:  Array(3)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Rerendered gamepadui routes list[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [8] Resolved PY call with value [0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [9] Resolved PY call with value [0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [10] Calling PY method loader/get_plugins with args Array(0)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; UI mode changed to 4[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [10] Resolved PY call with value Array(10)[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load DeckRoulette[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load Decky Framegen[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load decky-lsfg-vk[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load HLTB for Deck[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load Pause Games[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load Storage Cleaner[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load MoonDeck[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load ProtonDB Badges[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load IsThereAnyDeal for Deck[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Trying to load Decky Trailers[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [11] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [11] Resolved PY call with value [0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [12] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [12] Resolved PY call with value [0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded DeckRoulette in 43.40000000037253ms[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Decky Framegen connected to loader API.[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded Decky Framegen in 44.69999999925494ms[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; decky-lsfg-vk connected to loader API.[0m
+[37m[LOG] decky-lsfg-vk plugin initializing[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded decky-lsfg-vk in 46.29999999888241ms[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; HLTB for Deck connected to loader API.[0m
+[33m[WARNING] %c @decky/ui %c Webpack %c background: #16a085; color: black; background: #ffbb00; color: black; color: blue; findModuleChild is deprecated and will be removed soon. Use findModuleExport instead. Used in: 
+    at Module.findModuleChild (http://localhost:1337/frontend/chunk-BQvi_ECE.js:122:115)
+    at http://127.0.0.1:1337/plugins/HLTB%20for%20Deck/dist/index.js?t=1766173390197:5601:56[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded HLTB for Deck in 57.19999999925494ms[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Storage Cleaner connected to loader API.[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded Storage Cleaner in 58.40000000037253ms[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; ProtonDB Badges connected to loader API.[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [13] Calling PY method loader/call_plugin_method with args Array(4)[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded ProtonDB Badges in 63.70000000111759ms[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Decky Trailers connected to loader API.[0m
+[37m[LOG] %c Decky Trailers %c Info %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initializing Decky Trailers (Native Injection)...[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded Decky Trailers in 64.09999999962747ms[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Route list:  Array(30)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Route list:  Array(3)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Rerendered gamepadui routes list[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Pause Games connected to loader API.[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [14] Calling PY method loader/call_plugin_method with args Array(2)[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded Pause Games in 85.40000000037253ms[0m
+[33m[WARNING] %c @decky/ui %c Webpack %c background: #16a085; color: black; background: #ffbb00; color: black; color: blue; findModuleChild is deprecated and will be removed soon. Use findModuleExport instead. Used in: 
+    at Module.findModuleChild (http://localhost:1337/frontend/chunk-BQvi_ECE.js:122:115)
+    at eval (decky://decky/legacy_plugin/IsThereAnyDeal%20for%20Deck/index.js:1659:36)
+    at eval (decky://decky/legacy_plugin/IsThereAnyDeal%20for%20Deck/index.js:1754:3)
+    at PluginLoader.importReactPlugin (http://localhost:1337/frontend/chunk-XDnGndyf.js:6940:51)
+    at async PluginLoader.importPlugin (http://localhost:1337/frontend/chunk-XDnGndyf.js:6900:13)
+    at async Promise.all (index 8)
+    at async PluginLoader.loadPlugins (http://localhost:1337/frontend/chunk-XDnGndyf.js:6787:9)[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded IsThereAnyDeal for Deck in 93.09999999962747ms[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [13] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; MoonDeck connected to loader API.[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded MoonDeck in 110.90000000037253ms[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Loaded 10 plugins in 115.59999999962747ms[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [15] Calling PY method updater/get_version_info with args Array(0)[0m
+[37m[LOG] %c Decky %c PluginLoader %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initialized[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Rerendering global components[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [14] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [16] Calling PY method loader/call_plugin_method with args Array(4)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [17] Calling PY method loader/call_plugin_method with args Array(4)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [18] Calling PY method loader/call_plugin_method with args Array(4)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [19] Calling PY method loader/call_plugin_method with args Array(4)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [20] Calling PY method loader/call_plugin_method with args Array(3)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [21] Calling PY method loader/call_legacy_plugin_method with args Array(3)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [22] Calling PY method loader/call_legacy_plugin_method with args Array(3)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [15] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [23] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [16] Resolved PY call with value [0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [17] Resolved PY call with value [0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [18] Resolved PY call with value [0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [19] Resolved PY call with value [0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [21] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [24] Calling PY method loader/call_legacy_plugin_method with args Array(3)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [23] Resolved PY call with value 0[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [25] Calling PY method utilities/settings/get with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [22] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [24] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [25] Resolved PY call with value https://plugins.deckbrew.xyz/plugins[0m
+[37m[LOG] %c MoonDeck %c Info %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Initializing plugin for jallred@dellmail.com[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [20] Resolved PY call with value 0[0m
+[37m[DEBUG] %c MoonDeck %c Debug %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Checking if need to patch overview for 1030300.[0m
+[37m[DEBUG] %c MoonDeck %c Debug %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Patching setter/getter for 1030300.[0m
+[37m[DEBUG] %c MoonDeck %c Debug %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Checking if need to patch overview for 1030300.[0m
+[37m[DEBUG] %c MoonDeck %c Debug %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Checking if need to patch overview for 2350270.[0m
+[37m[DEBUG] %c MoonDeck %c Debug %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Patching setter/getter for 2350270.[0m
+[37m[DEBUG] %c MoonDeck %c Debug %c background: #16a085; color: black; background: #1abc9c; color: black; background: transparent; Checking if need to patch overview for 2350270.[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Route list:  Array(30)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Route list:  Array(3)[0m
+[37m[DEBUG] %c Decky %c RouterHook %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; Rerendered gamepadui routes list[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [26] Calling PY method loader/call_plugin_method with args Array(2)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [26] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [27] Calling PY method loader/call_plugin_method with args Array(6)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [28] Calling PY method loader/call_plugin_method with args Array(4)[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [27] Resolved PY call with value Object[0m
+[37m[DEBUG] %c Decky %c WSRouter %c background: #16a085; color: black; background: #1abc9c; color: black; color: blue; [28] Resolved PY call with value Object[0m
