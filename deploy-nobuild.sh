@@ -25,6 +25,6 @@ echo "🚀 Deploying to $DECK_HOST..."
 scp -r deploy/$PLUGIN_NAME $DECK_HOST:/home/deck/tmp/
 
 echo "🔄 Installing and Restarting..."
-ssh $DECK_HOST "sudo rm -rf $DECK_PLUGIN_DIR && sudo mv /home/deck/tmp/$PLUGIN_NAME /home/deck/homebrew/plugins/ && sudo systemctl restart plugin_loader.service"
+ssh $DECK_HOST "sudo rm -rf $DECK_PLUGIN_DIR && sudo mv /home/deck/tmp/$PLUGIN_NAME /home/deck/homebrew/plugins/ && sudo systemctl restart plugin_loader.service && sleep 10"
 
 echo "✅ Done! Check the Deck."
