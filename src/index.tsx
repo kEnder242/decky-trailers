@@ -40,10 +40,10 @@ export default definePlugin(() => {
                   const alreadyInjected = children.some((c: any) => c?.type === GameTrailer);
                   
                   if (!alreadyInjected) {
-                      // BASELINE SUCCESS: Index 2 is the natural 'UP' slot relative to the Play bar.
-                      const targetIndex = Math.min(2, children.length);
-                      children.splice(targetIndex, 0, <GameTrailer appId={appId} />);
-                      logger.info(`Injected at index ${targetIndex} for ${appId}`);
+                      // THE WINNER: Index 2 is navigable and sits right above the Action Bar.
+                      // We use splice to stay in the spatial flow.
+                      children.splice(2, 0, <GameTrailer appId={appId} />);
+                      logger.info(`Injected Winner at Index 2 for ${appId}`);
                   }
               }
 
