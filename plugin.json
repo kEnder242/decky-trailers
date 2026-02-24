@@ -4,8 +4,8 @@
   "flags": [],
   "api_version": 2,
   "publish": {
-    "tags": ["trailers", "video"],
-    "description": "Watch official game trailers on your Steam Deck.",
-    "image": "https://opengraph.githubassets.com/1/SteamDeckHomebrew/PluginLoader"
+    "tags": ["trailers", "video", "utility"],
+    "description": "Brings official cinematic game trailers to your game details page with a native-feeling UI.",
+    "image": "https://raw.githubusercontent.com/kEnder242/decky-trailers/main/assets/logo.png"
   }
 }

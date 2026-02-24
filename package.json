@@ -1,6 +1,6 @@
 {
   "name": "decky-trailers",
-  "version": "0.1.41",
+  "version": "1.0.0",
   "description": "Watch game trailers directly on the Steam Deck game pages.",
   "type": "module",
   "scripts": {
